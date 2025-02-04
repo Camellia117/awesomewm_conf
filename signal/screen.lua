@@ -21,9 +21,9 @@ screen.connect_signal('request::wallpaper', function(s)
       screen = s,
       widget = {
          widget = wibox.container.tile,
-         valign = 'center',
-         halign = 'center',
-         tiled  = false,
+         valign = 'fit',
+         halign = 'fit',
+         tiled  = true,
          {
             widget    = wibox.widget.imagebox,
             image     = beautiful.wallpaper,
@@ -33,6 +33,7 @@ screen.connect_signal('request::wallpaper', function(s)
       }
    })
 end)
+
 -- An example of what's mentioned above. For more information, see:
 -- https://awesomewm.org/apidoc/utility_libraries/gears.wallpaper.html
 -- gears.wallpaper.maximized(beautiful.wallpaper)

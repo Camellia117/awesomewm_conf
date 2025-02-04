@@ -11,14 +11,16 @@ return {
 	-- Each screen has its own tag table. You can just define one and append it to all
 	-- screens (default behavior).
 	tags = { "1", "2", "3", "4", "5" },
+  -- tags = { "󰣇 Dock", " Code", "󰭻 Chat", " Music", " Other" },
 	-- Table of layouts to cover with awful.layout.inc, ORDER MATTERS, the first layout
 	-- in the table is your DEFAULT LAYOUT.
 	layouts = {
 		awful.layout.suit.tile.left,
 		awful.layout.suit.tile,
+		awful.layout.suit.spiral,
 		awful.layout.suit.floating,
 		awful.layout.suit.tile.bottom,
-		awful.layout.suit.tile.top,
+		-- awful.layout.suit.tile.top,
 		-- awful.layout.suit.fair,
 		-- awful.layout.suit.fair.horizontal,
 		-- awful.layout.suit.spiral,

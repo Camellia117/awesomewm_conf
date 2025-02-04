@@ -19,21 +19,9 @@ awful.keyboard.append_global_keybindings({
   end, { description = "show main menu", group = "awesome" }),
   awful.key({ modkey, mod.ctrl }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, mod.shift }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-  awful.key({ modkey }, "x", function()
-    awful.prompt.run({
-      prompt = "Run Lua code: ",
-      textbox = awful.screen.focused().mypromptbox.widget,
-      exe_callback = awful.util.eval,
-      history_path = awful.util.get_cache_dir() .. "/history_eval",
-    })
-  end, { description = "lua execute prompt", group = "awesome" }),
   awful.key({ modkey }, "Return", function()
     awful.spawn(apps.terminal)
   end, { description = "open a terminal", group = "launcher" }),
-  awful.key({ modkey }, "r", function()
-    awful.screen.focused().mypromptbox:run()
-  end, { description = "run prompt", group = "launcher" }),
-  
 -- Rofi
   awful.key({ mod.alt }, " ", function()
 		awful.spawn.with_shell("rofi -show drun")
@@ -44,9 +32,13 @@ awful.keyboard.append_global_keybindings({
 		awful.spawn.with_shell("flameshot gui &")
 	end, { description = "capture the screen", group = "client" }),
 
-  awful.key({ modkey }, "p", function()
+  awful.key({ modkey, mod.shift }, "p", function()
     require("menubar").show()
   end, { description = "show the menubar", group = "launcher" }),
+-- mylock
+  awful.key({ modkey }, "l", function()
+    awful.spawn.with_shell("mylock")
+  end,{ description = "lock the screen", group = "screen"}),
 
   -- Tags related keybindings.
   awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
@@ -56,12 +48,19 @@ awful.keyboard.append_global_keybindings({
   -- Focus related keybindings.
   awful.key({ modkey }, "j", function()
     awful.client.focus.byidx(1)
+    if client.focus then
+      client.focus:raise()
+    end
   end, { description = "focus next by index", group = "client" }),
   awful.key({ modkey }, "k", function()
     awful.client.focus.byidx(-1)
+    if client.focus then
+      client.focus:raise()
+    end
   end, { description = "focus previous by index", group = "client" }),
-  awful.key({ modkey }, "Tab", function()
-    awful.client.focus.history.previous()
+  awful.key({ mod.alt }, "Tab", function()
+    -- awful.client.focus.history.previous()
+    awful.client.focus.byidx(1)
     if client.focus then
       client.focus:raise()
     end
