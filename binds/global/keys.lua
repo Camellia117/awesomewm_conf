@@ -22,6 +22,12 @@ awful.keyboard.append_global_keybindings({
   awful.key({ modkey }, "Return", function()
     awful.spawn(apps.terminal)
   end, { description = "open a terminal", group = "launcher" }),
+
+
+  awful.key({ modkey, mod.ctrl }, "h", function()
+    awful.spawn.with_shell("systemctl hibernate")
+  end, { description = "Hibernate System", group = "system" }),
+
 -- Rofi
   awful.key({ mod.alt }, " ", function()
 		awful.spawn.with_shell("rofi -show drun")
