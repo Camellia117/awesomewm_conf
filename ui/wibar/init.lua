@@ -7,6 +7,7 @@ local module = require(... .. '.module')
 return function(s)
    -- 创建分隔符
    local separator = require('ui.wibar.module.separator')
+   local dynamic_island = require('ui.wibar.module.dynamic_island')
 
    -- 创建系统托盘
    local systray = wibox.widget.systray()
@@ -15,7 +16,8 @@ return function(s)
 
    -- 创建时钟
    local clock = wibox.widget.textclock(
-      '<span font="Maple Mono 10"> %a %d %b %Y %H:%M:%S </span>'
+      '<span font="Maple Mono 10"> %a %d %b %Y %H:%M </span>',
+      60 -- update time per 60 mins
    )
 
    -- 创建顶部栏
@@ -38,6 +40,7 @@ return function(s)
          {-- Middle widgets.
             layout = wibox.layout.flex.horizontal,
             module.tasklist(s),
+            -- dynamic_island(),
          },
          -- Right widgets.
          {

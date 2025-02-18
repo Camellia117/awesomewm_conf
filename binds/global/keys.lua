@@ -19,6 +19,7 @@ awful.keyboard.append_global_keybindings({
   end, { description = "show main menu", group = "awesome" }),
   awful.key({ modkey, mod.ctrl }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, mod.shift }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
+
   awful.key({ modkey }, "Return", function()
     awful.spawn(apps.terminal)
   end, { description = "open a terminal", group = "launcher" }),

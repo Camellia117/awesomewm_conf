@@ -35,3 +35,5 @@ require('binds')
 
 -- Load all client rules.
 require('config.rules')
+-- load autorun
+require('awful').spawn.with_shell("~/.config/awesome/autorun.sh")
