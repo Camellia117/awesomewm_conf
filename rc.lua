@@ -26,6 +26,7 @@ require('awful.hotkeys_popup.keys')
 -- table.
 require('theme')
 
+require("module.naughty_center")
 -- Treat all signals. Bear in mind this implies creating all tags, attaching
 -- their layouts, setting client behavior and loading UI.
 require('signal')

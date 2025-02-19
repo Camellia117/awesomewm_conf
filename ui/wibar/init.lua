@@ -12,7 +12,7 @@ return function(s)
    -- 创建系统托盘
    local systray = wibox.widget.systray()
    systray:set_horizontal(true)
-   systray:set_base_size(20)
+   systray:set_base_size(22)
 
    -- 创建时钟
    local clock = wibox.widget.textclock(
@@ -33,7 +33,8 @@ return function(s)
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 10,
-            module.launcher(),
+            clock,
+            -- module.launcher(),
             module.taglist(s),
             s.mypromptbox
          },
@@ -48,9 +49,7 @@ return function(s)
             spacing = 10,
             systray,
             separator(5),
-            clock,
-            separator(5),
-            module.layoutbox(s) -- 布局框
+            -- module.layoutbox(s) -- 布局框
          }
       }
    })
