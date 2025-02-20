@@ -28,6 +28,7 @@ ruled.client.connect_signal("request::rules", function()
         "Spotify",
         "showmethekey-gtk",
         "steam",
+        "wechat",
         -- "org.wezfurlong.wezterm"
 			},
 			-- Note that the name property shown in xprop might be set slightly after creation of the client
